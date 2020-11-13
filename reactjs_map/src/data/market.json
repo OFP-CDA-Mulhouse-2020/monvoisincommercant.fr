@@ -1,0 +1,35 @@
+[
+
+    {
+        "id": 2,
+        "name": "Le bon pain",
+        "address": "full address ou séparée je m'arrange",
+        "position": [47.755, 7.29],
+        "categoryId" : 1,
+        "category" : "Boulangerie",
+        "description" : "bla bla",
+        "website" : "www.pain.com"
+    },
+    {
+        "id": 1,
+        "name": "Le bon pain",
+        "address": "full address ou séparée je m'arrange",
+        "position": [47.765, 7.285],
+        "categoryId" : 1,
+        "category" : "Boulangerie",
+        "description" : "bla bla",
+        "website" : "www.pain.com"
+    },
+    {
+        "id": 3,
+        "name": "Le bon pain",
+        "address": "full address ou séparée je m'arrange",
+        "position": [47.765, 7.29],
+        "categoryId" : 5,
+        "category" : "Boulangerie",
+        "description" : "bla bla",
+        "website" : "www.pain.com"
+    }
+]
+
+    

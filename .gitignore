@@ -14,3 +14,8 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+
+# dependencies reactjs
+reactjs_map/node_modules
+/.vscode

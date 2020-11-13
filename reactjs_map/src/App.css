@@ -1,0 +1,37 @@
+
+/***************/
+/******MAP*****/
+/***************/
+body{
+  background-color: rgb(104, 102, 100);
+  color :white;
+  height: 100%;
+  width: 100%;
+}
+
+*, *::before,*::after{
+  box-sizing: border-box;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+#mapid2 {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 80%;
+  background-color: rgb(75, 191, 137);
+
+}
+
+
+#mapid {
+  height: 500px;
+  background-color: rgb(250, 250, 250);
+
+}
+
+
+

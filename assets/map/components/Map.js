@@ -44,14 +44,14 @@ class Map extends Component {
 
   handleChange = (coordinates) => {
     console.log('handleChange', coordinates);
-    this.setState({ coordinates: coordinates, loading: true });
+    this.setState({ coordinates: coordinates, loading: false });
 
     const lat = this.state.coordinates.lat;
     const lng = this.state.coordinates.lng;
 
     // URL à modifier en fonction du site
     const url = `/api/points/nearest?lat=` + lat + `&long=` + lng;
-
+/*
     fetch(url, { method: 'get' })
         .then(function(response) {
           return response.json();
@@ -65,7 +65,22 @@ class Map extends Component {
         //   this.setState({ marketData: response.data, loading: true });
         // }
 
-      });
+      });*/
+
+      fetch(url, { method: 'get' }).then(response => {
+          console.log(response);
+        if (response.status === 200) {
+          return response.json();
+        }
+      })
+        .then(json => {
+          console.log(json);
+          this.setState({ marketData: json, loading: true });
+          console.log(this.state);
+
+        }
+  
+      );
   }
 
   render() {

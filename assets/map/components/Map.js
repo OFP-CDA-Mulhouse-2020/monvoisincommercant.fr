@@ -31,11 +31,12 @@ class Map extends Component {
         })
         .then(json => {
           console.log(json)
-          // if (response.status === 200) {
+           if (response.status === 200) {
           //   console.log(response.data); // a voir si OK
           this.setState({ marketData: json, loading: true });
-          // }
+          console.log(this.state)
 
+           }
         });
   }
 

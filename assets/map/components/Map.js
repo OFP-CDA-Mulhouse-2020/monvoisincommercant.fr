@@ -27,17 +27,19 @@ class Map extends Component {
 
     fetch(url, { method: 'get' })
         .then(function(response) {
+          
           return response.json();
         })
         .then(json => {
           console.log(json)
-           if (response.status === 200) {
+          // if (response.status === 200) {
           //   console.log(response.data); // a voir si OK
           this.setState({ marketData: json, loading: true });
           console.log(this.state)
 
-           }
+        //   }
         });
+
   }
 
   handleChange = (coordinates) => {

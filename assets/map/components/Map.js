@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { MapContainer, TileLayer, LayerGroup, Circle } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import LocationMarker from './LocationMarker';
-//import MarketList from '../data/market.json';
 import MarketLayer from './MarketLayer';
 
 
@@ -47,8 +46,6 @@ class Map extends Component {
     const lat = this.state.coordinates.lat;
     const lng = this.state.coordinates.lng;
 
-    debugger;
-
     // URL à modifier en fonction du site
     const url = `/api/points/nearest?lat=` + lat + `&long=` + lng;
 
@@ -66,23 +63,17 @@ class Map extends Component {
         // }
 
       });
-
   }
 
-
-
   render() {
-    const fillBlueOptions = { fillColor: 'blue' };
-    const center = [47.762727, 7.289758];
     if (this.state.loading) {
+      const center = [this.state.coordinates.lat, this.state.coordinates.lng];
+
       return (
-        <MapContainer center={center} zoom={9} scrollWheelZoom={false} style={{ height: 800, width: "100%" }} >
+        <MapContainer center={center} zoom={15} scrollWheelZoom={false} style={{ height: 500, width: "100%" }} >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <LayerGroup>
-            <Circle center={center} pathOptions={fillBlueOptions} radius={1000} />
-          </LayerGroup>
 
           <LocationMarker handleChange={this.handleChange} />
           <MarketLayer marketData={this.state.marketData} />
@@ -90,7 +81,7 @@ class Map extends Component {
         </MapContainer>
       );
     } else {
-      return (<h5 className="card-title">wait... </h5>);
+      return (<h5>wait... </h5>);
     }
   }
 }

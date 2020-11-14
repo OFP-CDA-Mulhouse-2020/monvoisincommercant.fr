@@ -1,5 +1,6 @@
 import L from 'leaflet';
-
+import imgPerson from '../images/marker-icon.png';
+import imgPersonShadow from '../images/marker-shadow.png';
 
 let IconMarket = L.Icon.extend({
     options: {
@@ -14,8 +15,8 @@ let IconMarket = L.Icon.extend({
 
 
 let iconPerson = new L.Icon({
-    iconUrl: '/images/marker-icon.png',
-    shadowUrl: '/images/marker-shadow.png',
+    iconUrl: imgPerson,
+    shadowUrl: imgPersonShadow,
     iconSize: [38, 75], // size of the icon
     shadowSize: [50, 64], // size of the shadow
     iconAnchor: [15, 55], // point of the icon which will correspond to marker's location

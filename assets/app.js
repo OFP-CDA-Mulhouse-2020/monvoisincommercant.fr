@@ -8,7 +8,6 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Map from './map/components/Map'
@@ -16,9 +15,7 @@ import Map from './map/components/Map'
 function App() {
 
     return (
-        <div id="mapid2">
-            <Map></Map>
-        </div>
+            <Map/>
     );
 }
 

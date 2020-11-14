@@ -6,14 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TestReactController extends AbstractController
+class HomepageController extends AbstractController
 {
     /**
-     * @Route("/test/react", name="test_react")
+     * @Route("/", name="homepage")
      */
     public function index(): Response
     {
-        return $this->render('test_react/index.html.twig', [
+
+
+
+        return $this->render('homepage/index.html.twig', [
             'controller_name' => 'TestReactController',
         ]);
     }

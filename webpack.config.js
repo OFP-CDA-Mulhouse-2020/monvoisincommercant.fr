@@ -6,6 +6,8 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
 
+var webpack = require('webpack')
+
 Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
@@ -47,11 +49,17 @@ Encore
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
+    .configureBabel(function(babelConfig) {
+        babelConfig.plugins.push('transform-class-properties');
+    })
+
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;
     })
+
+    //.addPlugin(new webpack.IgnorePlugin())
 
     // enables Sass/SCSS support
     //.enableSassLoader()
@@ -67,7 +75,7 @@ Encore
     //.autoProvidejQuery()
 
     // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
+    .enableReactPreset()
     //.addEntry('admin', './assets/admin.js')
 ;
 

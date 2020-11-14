@@ -12,8 +12,68 @@
 
 {% block body %}
 
-    <div id="map">
+    <div class="container-fluid">
+        <header class="p-5 d-flex justify-content-between ">
+            <img class="header__logo" src="{{ asset('build/images/logo.png') }}">
+            <h1 class="header__headline pt-3">Mon commerce <span class="negative">à proximité !</span></h1>
+        </header>
 
     </div>
+
+    <div class="container-fluid">
+        <div class="col-lg-12 map__container">
+            <div id="map" class="py-3"></div>
+        </div>
+    </div>
+
+    <div class="container form__section">
+
+        <div class="col-lg-12 text-center pt-5">
+            <h2>
+                Vous êtes commercant ?
+            </h2>
+            <p>Inscrivez vous ci dessous pour apparaître sur la carte !</p>
+        </div>
+
+
+        <div class="col-lg-8 offset-2 py-5 form__container">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-block btn-inversed">Valider</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <footer class="p-5 mt-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="footer__logo" src="{{ asset('build/images/logo_olfp.png') }}"/>
+                </div>
+                <div class="col-lg-8 py-5">
+                    <p>Site réalisé bénévolement par la formation "Concepteur Développeur d'applications" OnlineFormaPro 2020 - Mulhouse</p>
+                    <p>
+                        Distribué sous licence Creative Commons CC-BY-NC-ND<br/>
+                        <img class="footer__licence" src="{{ asset('build/images/by-nc-sa.eu.png') }}"/>
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+
+
 
 {% endblock %}

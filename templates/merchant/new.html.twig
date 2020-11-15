@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Launch a new Adress! </h1>
+
+    {{ form_start(merchantForm) }}
+    {{ form_widget(merchantForm) }}
+
+    <button type="submit" class="btn btn-primary">Create!</button>
+    {{ form_end(merchantForm) }}
+{% endblock %}

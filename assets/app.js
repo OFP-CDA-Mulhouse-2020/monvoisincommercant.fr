@@ -12,12 +12,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Map from './map/components/Map'
 
-function App() {
 
+function App() {
     return (
-            <Map/>
-    );
+        <Map></Map>
+    )
 }
+
 
 ReactDOM.render(<App/>, document.querySelector('#map'));
 

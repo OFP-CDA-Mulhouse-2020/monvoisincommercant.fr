@@ -22,7 +22,7 @@ class HomepageController extends AbstractController
         $merchantForm->handleRequest ($request);
 
         if ($merchantForm->isSubmitted () && $merchantForm->isValid ()) {
-            $data = $form->getData ();
+            $data = $merchantForm->getData ();
 
             dd($data);
 
@@ -31,9 +31,6 @@ class HomepageController extends AbstractController
 
             //return $this->redirectToRoute ('merchant_add');
         }
-
-
-
 
         return $this->render('homepage/index.html.twig', [
             'merchantForm' => $merchantForm->createView(),

@@ -61,9 +61,11 @@
 {% block body %}
 
     <div class="container-fluid">
-        <header class="p-5 d-flex justify-content-between ">
-            <img class="header__logo" src="{{ asset('build/images/logo.png') }}">
-            <h1 class="header__headline pt-3">Mon commerce <span class="negative">à proximité !</span></h1>
+        <header class="p-5 d-flex flex  justify-content-between flex-lg-row flex-column text-center">
+            <div class="center">
+                <img class="header__logo" src="{{ asset('build/images/logo.png') }}">
+            </div>
+            <h1 class="header__headline pt-3">Mon commerce <span class="negative">à&nbsp;proximité&nbsp;!</span></h1>
         </header>
 
     </div>
@@ -83,8 +85,7 @@
             <p>Inscrivez vous ci dessous pour apparaître sur la carte !</p>
         </div>
 
-
-        <div class="col-lg-8 offset-2 py-5 form__container">
+        <div class="col-lg-8 col-md-12 offset-lg-2 py-5 form__container">
             {{ form_start(merchantForm) }}
             {{ form_rest(merchantForm) }}
             <button type="submit" class="btn btn-block btn-inversed">Valider</button>
@@ -96,13 +97,13 @@
     <div class="container-fluid">
         <footer class="p-5 mt-5">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-12 text-center">
                     <img class="footer__logo" src="{{ asset('build/images/logo_olfp.png') }}"/>
                 </div>
-                <div class="col-lg-8 py-5">
-                    <p>Site réalisé bénévolement par la formation "Concepteur Développeur d'applications" OnlineFormaPro 2020 - Mulhouse</p>
+                <div class="col-lg-8 col-md-12 py-5 text-center">
+                    <p>Site réalisé bénévolement par la formation<br/><em>"Concepteur Développeur d'applications"</em><br>OnlineFormaPro 2020 - Mulhouse</p>
                     <p>
-                        Distribué sous licence Creative Commons CC-BY-NC-ND<br/>
+                        Distribué sous licence<br/>Creative Commons CC-BY-NC-ND<br/>
                         <img class="footer__licence" src="{{ asset('build/images/by-nc-sa.eu.png') }}"/>
                     </p>
                 </div>

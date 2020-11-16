@@ -1,0 +1,365 @@
+.header {
+    height: 15vh;
+    background-color: #07549a;
+    position: relative;
+}
+
+.title-header p {
+    color: white;
+    text-transform:uppercase;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 6%;
+    /* margin-left: 18%;*/
+    text-align: right;
+}
+
+.title-header img {
+    width: 32%;
+    margin-left: 62%;
+    margin-top: -15%;
+}
+
+
+.section-map {
+    height: 55vh;
+    background-color: #5b5b5b;
+    position: relative;
+}
+
+.lamap {
+    position: absolute;
+    top: 7%;
+    left: 10%;
+}
+
+/* SECTION FORM */
+
+.section-form {
+    height: 130vh;
+    position: relative;
+}
+
+.section-form-h2 h2 {
+    color: #07549a;
+    /*margin-left: 34%; */
+    margin-top: 5%;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-form-h5 h5 {
+    color: #07549a;
+    font-family: Lato, sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+.form {
+    background-color: #7c0303;
+    height: 100vh;
+    margin-top: 3%;
+    max-width: 587px;
+    border-radius: 3%;
+}
+
+label {
+    color: white;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+input {
+    margin-left: 2%;
+}
+
+.form-control {
+    width: 95%;
+}
+
+textarea {
+    margin-left: 2%;
+}
+
+.contact-input {
+    margin-top: 4%;
+}
+
+
+.btn-danger {
+    color: #7c0303;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    background-color: white;
+    border-color: white;
+    margin-top: 8%;
+    margin-left: 70%;
+}
+
+/* FOOTER */
+
+.footer {
+    height: 15vh;
+    background-color: #07549a;
+    position: relative;
+}
+
+.footer h5 {
+    color: white;
+    font-family: Lato, sans-serif;
+    /*font-weight: bold;*/
+    font-size: 1rem;
+    /* margin-top: 7%; */
+}
+
+.footer h6 {
+    color: white;
+    font-family: Lato, sans-serif;
+    font-size: 0.6rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 2561px)  {
+    .header {
+        height: 19vh;
+    }
+
+    .title-header p {
+        font-size: 4.5rem;
+        margin-top: 10%;
+    }
+
+    .proximite{
+        margin-top: 8%;
+    }
+
+    .section-form-h2 h2 {
+        font-size: 4rem;
+    }
+
+    .section-form-h5 h5 {
+        font-size: 3.25rem;
+    }
+
+    .form {
+        max-width: 50%;
+        border-radius: 5%;
+    }
+
+    label {
+        font-size: 2rem;
+    }
+
+    .form-control {
+        height: 60px;
+    }
+    .btn-danger {
+        font-size: 3rem;
+        margin-top: 12%;
+    }
+    .img-footer-right img {
+        width: 18%;
+    }
+
+    .footer h5 {
+        font-size: 2rem;
+        /*margin-top: 12%;*/
+        text-align: center;
+        margin-left: 39%;
+        margin-top: 2%;
+
+    }
+
+    .footer h6 {
+        font-size: 1.5rem;
+        margin-top: -2%;
+        margin-left: 10%;
+    }
+    .footer img {
+        width: 10%;
+        margin-left: 45%;
+    }
+}
+
+@media (max-width: 1440px) {
+    .header {
+        height: 12vh;
+    }
+
+    .title-header p {
+        font-size: 3.5rem;
+    }
+
+    .proximite {
+        margin-top: 11%;
+    }
+
+    .section-map {
+        height: 37vh;
+    }
+
+    .section-form-h2 h2 {
+        font-size: 3rem;
+    }
+
+    .section-form-h5 h5 {
+        font-size: 2.25rem;
+    }
+
+    .section-form {
+        height: 120vh;
+    }
+
+    .form {
+        max-width: 70%;
+        border-radius: 6%;
+        height: 92vh;
+
+    }
+
+    .btn-danger {
+        font-size: 2.5rem;
+        margin-top: 12%;
+    }
+    .footer {
+        height: 11vh;
+    }
+    .footer h5 {
+        font-size: 1.4rem;
+    }
+
+    .footer h6 {
+        font-size: 1.2rem;
+        margin-top: -5%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        height: 9vh;
+    }
+
+    .title-header p {
+        font-size: 2.5rem;
+    }
+
+    .lamap img {
+        width: 90%;
+    }
+
+    .section-map {
+        height: 28vh;
+    }
+
+    .section-form-h2 h2 {
+        font-size: 2rem;
+    }
+
+    .section-form-h5 h5 {
+        font-size: 1.6rem;
+    }
+
+    .form {
+        border-radius: 2%;
+        height: 82vh;
+    }
+
+    .label {
+        font-size: 1.6rem;
+    }
+
+    .btn-danger {
+        font-size: 1.5rem;
+    }
+
+    .section-form {
+        height: 97vh;
+    }
+
+    .footer h5 {
+        font-size: 0.9rem;
+        margin-top: 10%;
+    }
+
+    .footer h6 {
+        font-size: 0.8rem;
+        margin-top: -8%;
+        margin-left: 10%;
+    }
+
+    .footer {
+        height: 7vh;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 6vh;
+    }
+
+    .title-header p {
+        font-size: 1.5rem;
+    }
+
+    .section-map {
+        height: 21vh;
+    }
+
+    .section-form-h2 h2 {
+        font-size: 1.7rem;
+    }
+
+    .section-form-h5 h5 {
+        font-size: 1.3rem;
+    }
+
+    label {
+        font-size: 1.5rem;
+    }
+
+    .form {
+        margin-top: 7%;
+        height: 71vh;
+    }
+
+    .section-form {
+        height: 87vh;
+    }
+
+    .footer h5 {
+        font-size: 0.7rem;
+        margin-top: 10%;
+    }
+
+    .footer h6 {
+        font-size: 0.6rem;
+        margin-top: -12%;
+        margin-left: 10%;
+    }
+
+    .footer {
+        height: 5vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

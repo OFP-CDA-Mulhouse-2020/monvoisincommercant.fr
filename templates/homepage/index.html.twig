@@ -4,6 +4,54 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
+
+    {#
+       let adress = document.querySelector("#merchantform_adress");
+        let street = document.querySelector("#merchantform_street");
+        let streetnumber = document.querySelector("#merchantform_streetnumber");
+        let codepostal = document.querySelector("#merchantform_codepostal");
+        let city = document.querySelector("#merchantform_city");
+        let cordonneesX = document.querySelector("#merchantform_cordonneX");
+        let cordonneesY = document.querySelector("#merchantform_cordonneY");
+
+        function play(){
+        const apiUrl = 'https://api-adresse.data.gouv.fr/search/?q=';
+        const type = '&type=housenumber';
+        const format = '&format=json';
+
+        let code = adress.value;
+
+        code = code.replace(/\s+/g, '+');
+
+        //console.log(code);
+        let url = apiUrl + code + type + format;
+        console.log(url);
+        return url
+        }
+        function listeadress(){
+
+        let data = play();
+        fetch(data, {methode: 'get'}).then(response => response.json().then(results => {
+            const select = document.cereateElement()
+        }))
+
+        }
+        function dataadress(){
+        let data = play();
+        fetch(data, {method: 'get'}).then(response => response.json()).then(results => {
+
+            //console.log(results.features[0].geometry.coordinates[1]);
+
+            streetnumber.value = results.features[0].properties.housenumber;
+            street.value = results.features[0].properties.street;
+            codepostal.value = results.features[0].properties.postcode;
+            city.value = results.features[0].properties.city
+            cordonneesX.value = results.features[0].geometry.coordinates[1];
+            cordonneesY.value = results.features[0].geometry.coordinates[0];
+        })}
+        adress.addEventListener("change",dataadress);
+        adress.addEventListener("keyup",dataadress);
+    #}
 {% endblock %}
 
 {% block stylesheets %}
@@ -13,9 +61,11 @@
 {% block body %}
 
     <div class="container-fluid">
-        <header class="p-5 d-flex justify-content-between ">
-            <img class="header__logo" src="{{ asset('build/images/logo.png') }}">
-            <h1 class="header__headline pt-3">Mon commerce <span class="negative">à proximité !</span></h1>
+        <header class="p-5 d-flex flex  justify-content-between flex-lg-row flex-column text-center">
+            <div class="center">
+                <img class="header__logo" src="{{ asset('build/images/logo.png') }}">
+            </div>
+            <h1 class="header__headline pt-3">Mon commerce <span class="negative">à&nbsp;proximité&nbsp;!</span></h1>
         </header>
 
     </div>
@@ -35,36 +85,25 @@
             <p>Inscrivez vous ci dessous pour apparaître sur la carte !</p>
         </div>
 
+        <div class="col-lg-8 col-md-12 offset-lg-2 py-5 form__container">
+            {{ form_start(merchantForm) }}
+            {{ form_rest(merchantForm) }}
+            <button type="submit" class="btn btn-block btn-inversed">Valider</button>
 
-        <div class="col-lg-8 offset-2 py-5 form__container">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-block btn-inversed">Valider</button>
-            </form>
+            {{ form_end(merchantForm) }}
         </div>
     </div>
 
     <div class="container-fluid">
         <footer class="p-5 mt-5">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-12 text-center">
                     <img class="footer__logo" src="{{ asset('build/images/logo_olfp.png') }}"/>
                 </div>
-                <div class="col-lg-8 py-5">
-                    <p>Site réalisé bénévolement par la formation "Concepteur Développeur d'applications" OnlineFormaPro 2020 - Mulhouse</p>
+                <div class="col-lg-8 col-md-12 py-5 text-center">
+                    <p>Site réalisé bénévolement par la formation<br/><em>"Concepteur Développeur d'applications"</em><br>OnlineFormaPro 2020 - Mulhouse</p>
                     <p>
-                        Distribué sous licence Creative Commons CC-BY-NC-ND<br/>
+                        Distribué sous licence<br/>Creative Commons CC-BY-NC-ND<br/>
                         <img class="footer__licence" src="{{ asset('build/images/by-nc-sa.eu.png') }}"/>
                     </p>
                 </div>

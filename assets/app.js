@@ -16,9 +16,9 @@ import Map from './map/components/Map'
 function App() {
 
     return (
-        <div id="mapid2">
+
             <Map></Map>
-        </div>
+
     );
 }
 

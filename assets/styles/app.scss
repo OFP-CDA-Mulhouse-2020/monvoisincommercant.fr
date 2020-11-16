@@ -2,7 +2,15 @@
 
 @import '~leaflet/dist/leaflet.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:ital,wght@1,400;1,700&display=swap');
+
+
+$text-muted: #eeeeee;
+
+body{
+  font-family: 'Lato', Arial, SansSerif, serif;
+}
 
 .container-fluid {
   padding: 0;
@@ -30,7 +38,8 @@ header, footer {
   h1 {
     color: white;
     text-transform: uppercase;
-    font-family: 'Yanone Kaffeesatz', Arial, SansSerif, serif;
+    font-family: 'Roboto', Arial, SansSerif, serif;
+    font-weight: 700;
     font-style: italic;
   }
 
@@ -49,25 +58,23 @@ header, footer {
   background-color: lightgray;
 }
 
-
 .form__section{
 
   color: #07549a;
 
   form{
     color: white;
-    font-family: 'Yanone Kaffeesatz', Arial, SansSerif, serif;
+    font-family: 'Lato', Arial, SansSerif, serif;
     font-size: 1.5rem;
     font-style: italic;
   }
 
   h2{
-    font-family: 'Yanone Kaffeesatz', Arial, SansSerif, serif;
+    font-family: 'Roboto', Arial, SansSerif, serif;
     text-transform: uppercase;
   }
 
   p{
-    font-family: 'Yanone Kaffeesatz', Arial, SansSerif, serif;
     font-size: 1.5rem;
   }
 
@@ -75,7 +82,11 @@ header, footer {
     background-color: #ba1b1b;
     border-radius: 5px;
     color: white;
+
+
   }
+
+
 }
 
 footer {

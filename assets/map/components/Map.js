@@ -16,15 +16,28 @@ class Map extends Component {
         lng: 7.7533103
       }
     }
+    console.log( this.state);
+
   }
 
   componentDidMount() {
+    let test = null;
+  navigator.geolocation.getCurrentPosition(function(position) {
+    console.log( position.coords);
+    test = position.coords;
+    if(test != null){
+      this.getPosition();
+    }
+
+  });
+  console.log("test", test);
+
 
     const lat = this.state.coordinates.lat;
     const lng = this.state.coordinates.lng;
 
     const url = `/api/points/nearest?lat=` + lat + `&long=` + lng;
-
+/*
     fetch(url, { method: 'get' })
         .then(function(response) {
           
@@ -39,19 +52,37 @@ class Map extends Component {
 
         //   }
         });
-
+*/
   }
+
+  getPosition = () => {
+
+console.log(this.state);
+
+/*
+let geo;
+ navigator.geolocation.getCurrentPosition(function(position) {
+  console.log("Latitude is :", position.coords.latitude);
+  console.log("Longitude is :", position.coords.longitude);
+  console.log( position.coords);
+  geo = position.coords;
+
+});
+*/
+  }
+
+
 
   handleChange = (coordinates) => {
     console.log('handleChange', coordinates);
-    this.setState({ coordinates: coordinates, loading: false });
-
+    this.setState({ coordinates: coordinates, loading: true });
+/*
     const lat = this.state.coordinates.lat;
     const lng = this.state.coordinates.lng;
 
     // URL à modifier en fonction du site
     const url = `/api/points/nearest?lat=` + lat + `&long=` + lng;
-/*
+
     fetch(url, { method: 'get' })
         .then(function(response) {
           return response.json();
@@ -65,8 +96,8 @@ class Map extends Component {
         //   this.setState({ marketData: response.data, loading: true });
         // }
 
-      });*/
-
+      });
+/*
       fetch(url, { method: 'get' }).then(response => {
           console.log(response);
         if (response.status === 200) {
@@ -80,7 +111,7 @@ class Map extends Component {
 
         }
   
-      );
+      );*/
   }
 
   render() {

@@ -6,112 +6,105 @@
     {{ encore_entry_script_tags('app') }}
 
     <script type="text/javascript">
-        let adress = document.querySelector("#merchantform_adress");
-        let street = document.querySelector("#merchantform_street");
-        let streetnumber = document.querySelector("#merchantform_streetnumber");
-        let codepostal = document.querySelector("#merchantform_codepostal");
-        let city = document.querySelector("#merchantform_city");
-        let cordonneesX = document.querySelector("#merchantform_cordonneX");
-        let cordonneesY = document.querySelector("#merchantform_cordonneY");
+       let adress = document.querySelector("#merchantform_adress");
+let street = document.querySelector("#merchantform_street");
+let streetnumber = document.querySelector("#merchantform_streetnumber");
+let codepostal = document.querySelector("#merchantform_codepostal");
+let city = document.querySelector("#merchantform_city");
+let cordonneesX = document.querySelector("#merchantform_cordonneX");
+let cordonneesY = document.querySelector("#merchantform_cordonneY");
 
-        var newNode = document.createElement("div");
-        newNode.setAttribute("id","autocomplete-list");
-        document.body.appendChild(newNode);
+var newNode = document.createElement("div");
+newNode.setAttribute("id","autocomplete-list");
+document.body.appendChild(newNode);
 
-        var parentDiv = document.querySelector("#merchantform_street").parentNode;
-        var sp2 = document.querySelector("#merchantform_street");
-        parentDiv.insertBefore(newNode, sp2);
-
-
+var parentDiv = document.querySelector("#merchantform_street").parentNode;
+var sp2 = document.querySelector("#merchantform_street");
+parentDiv.insertBefore(newNode, sp2);
 
 
-        function play(){
-            const apiUrl = 'https://api-adresse.data.gouv.fr/search/?q=';
-            const type = '&type=housenumber';
-            const format = '&format=json';
-
-            let code = adress.value;
-
-            code = code.replace(/\s+/g, '+');
 
 
-            let url = apiUrl + code + type + format;
+function play(){
+    const apiUrl = 'https://api-adresse.data.gouv.fr/search/?q=';
+    const type = '&type=housenumber';
+    const format = '&format=json';
 
-            return url
+    let code = adress.value;
+
+    code = code.replace(/\s+/g, '+');
+
+
+    let url = apiUrl + code + type + format;
+
+    return url
+}
+function listeadress(){
+
+    let data = play();
+    fetch(data, {methode: 'get'}).then(response => response.json().then(results => {
+        const select = document.cereateElement()
+    }))
+
+}
+function dataadress(){
+    let data = play();
+    fetch(data, {method: 'get'}).then(response => response.json()).then(results => {
+        
+
+
+        streetnumber.value = results.features[0].properties.housenumber;
+        street.value = results.features[0].properties.street;
+        codepostal.value = results.features[0].properties.postcode;
+        city.value = results.features[0].properties.city
+        cordonneesX.value = results.features[0].geometry.coordinates[1];
+        cordonneesY.value = results.features[0].geometry.coordinates[0];
+    })}
+
+const searchResultsContainer = document.createElement('div');
+searchResultsContainer.setAttribute('class', 'row');
+function listAdress(){
+    var searchData = document.querySelector("#merchantform_adress").value;
+    if(searchData.length > 10){
+
+    adress.onkeydown = function() {
+        const h1 = document.createElement('h1');
+        let data = play();
+
+            var request = new XMLHttpRequest();
+            request.open('GET',data, true);
+        h1.setAttribute("id","autoL");
+            request.onload = function () {
+
+                var data = JSON.parse(this.response);
+                var results = data;
+                if (request.status >= 200 && request.status < 400) {
+
+                    Object.keys(data.features).map(function (key, index) {
+                        if(searchData.context === data.features[index].properties.street){
+                            h1.innerHTML = data.features[index].properties.postcode
+                            +" "+data.features[index].properties.label;
+                            newNode.appendChild(h1);}
+                    });
+                    h1.addEventListener("click", function(e) {
+                        console.log(h1);
+                        /*insert the value for the autocomplete text field:*/
+
+                        document.querySelector("#merchantform_adress").value = h1.textContent
+
+
+                        var top = document.querySelectorAll("#autoL");
+                        var nested = document.querySelector("#autocomplete-list");
+                        for (var i=0; i< top.length; i++){
+                            var garbage = nested.removeChild(top[i]);
+                        }
+                    });
+
+                }}
+
+            request.send();
         }
-        function listeadress(){
-
-            let data = play();
-            fetch(data, {methode: 'get'}).then(response => response.json().then(results => {
-                const select = document.cereateElement()
-            }))
-
-        }
-        function dataadress(){
-            let data = play();
-            fetch(data, {method: 'get'}).then(response => response.json()).then(results => {
-
-
-
-                streetnumber.value = results.features[0].properties.housenumber;
-                street.value = results.features[0].properties.street;
-                codepostal.value = results.features[0].properties.postcode;
-                city.value = results.features[0].properties.city
-                cordonneesX.value = results.features[0].geometry.coordinates[1];
-                cordonneesY.value = results.features[0].geometry.coordinates[0];
-            })}
-
-        function listAdress(){
-
-            var searchData = document.querySelector("#merchantform_adress").value;
-            adress.onkeydown = function() {
-                const h1 = document.createElement('h1');
-                let data = play();
-
-                var request = new XMLHttpRequest();
-                request.open('GET',data, true);
-                request.onload = function () {
-
-                    var data = JSON.parse(this.response);
-
-                    var results = data;
-                    if (request.status >= 200 && request.status < 400) {
-                        console.log(data);
-                        Object.keys(data.features).map(function (key, index) {
-
-
-                            const searchResultsContainer = document.createElement('div');
-                            searchResultsContainer.setAttribute('class', 'row');
-                            h1.setAttribute("id","aut");
-                            h1.innerHTML = data.features[index].properties.label;
-                            h1.innerHTML = data.features[index].properties.label
-                            newNode.appendChild(h1);
-
-
-                        });
-                        h1.addEventListener("click", function(e) {
-                            console.log(h1);
-                            /*insert the value for the autocomplete text field:*/
-
-                            document.querySelector("#merchantform_adress").value = h1.textContent
-
-
-                            var top = document.querySelectorAll("#aut");
-                            var nested = document.querySelector("#autocomplete-list");
-                            for (var i=0; i< top.length; i++){
-                                var garbage = nested.removeChild(top[i]);
-                            }
-                        });
-
-                    }}
-
-                request.send();
-            }
-        }
-        adress.addEventListener("keydown",listAdress);
-        adress.addEventListener("change",dataadress);
-        adress.addEventListener("keyup",dataadress);
-
+    }}
         function debounce(callback, delay ){
             let timer = null;
             return function(){
@@ -121,6 +114,7 @@
                 }, delay)
             }
         }
+        adress.addEventListener("keydown",listAdress);
         adress.addEventListener("change", dataadress);
         adress.addEventListener("keyup", debounce(dataadress, 500));
     </script>
